@@ -65,6 +65,9 @@ Route::get('pages/examples/profile', function(){return view('pages/examples/prof
 Route::get('pages/examples/register', function(){return view('pages/examples/register');});
 
 Route::get('documentation/index', function(){return view('documentation/index');});
+
+Route::get('/profile', 'ProfileController@index');	
+Route::post('/profile', 'ProfileController@update');
 });
 
 
