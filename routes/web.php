@@ -4,10 +4,18 @@
 //     return view('welcome');
 // });
 
-// Route::get('sidebartest', function(){ return view('sidebartest');});
+Route::get('sidebartest', function(){ return view('sidebartest');});
 
 Route::get('partials/sidebar', function(){ return view('partials/sidebar');});
 
+Route::get('auths/login', function(){return view('auths/login');});
+Route::get('login', 'Auths\Authscontroller@getlogin')->name('login');
+Route::post('login', 'Auths\Authscontroller@postlogin');
+Route::get('auths/register', function(){return view('auths/register');});
+Route::get('register', 'Auths\Authscontroller@getregister')->name('register');
+Route::post('register', 'Auths\Authscontroller@postregister');
+
+Route::group(['middleware'=>['auths']], function() {
 Route::get('/', function(){ return view('index');});
 
 Route::get('index', function(){return view('index');});
@@ -57,8 +65,12 @@ Route::get('pages/examples/profile', function(){return view('pages/examples/prof
 Route::get('pages/examples/register', function(){return view('pages/examples/register');});
 
 Route::get('documentation/index', function(){return view('documentation/index');});
+});
 
 
 
 
 
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
