@@ -26,7 +26,7 @@ class AddmemberController extends Controller
      */
     public function create()
     {
-        //
+        return view('managemembers/addmember/create');
     }
 
     /**
@@ -37,7 +37,15 @@ class AddmemberController extends Controller
      */
     public function store(Request $request)
     {
-        //
+            
+        User::create([
+              'name'=>$request->name,
+              'email'=>$request->email,
+              'password'=>$request->password
+              ]);
+
+      return redirect('managemembers/addmember/index');
+        
     }
 
     /**

@@ -19,7 +19,9 @@
                 </div>
               </div>
             </div>
-            <button type="button" class="btn btn-pirmary" data-toggle="modal" data-target="#myModal">Create Member</button>            
+            <button type="button" class="btn btn-default btn-flat">
+            <a href="\managemembers\addmember\create">Create</a>
+            </button>
             <div class="box-body table-responsive no-padding">
               <table class="table table-hover">
                 <tr>
@@ -31,7 +33,7 @@
                   <th>Reason</th>
                   <th>Action</th>
                 </tr>                                         
-                <tr @foreach($users as $u) >
+                <tr @foreach($users as $u)>
                   <td>{{ $u->id }}</td>
                   <td>{{ $u->name }}</td>
                   <td>{{ $u->created_at }}</td>
@@ -39,17 +41,20 @@
                   <td><span class="label label-success">Approved</span></td>
                   <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
                   <td>
-                  <td>
-                  <form method="post" action="{{ route('addmember.index') }} {{ $user->id }}">
-                    <input name="_token" type="hidden" value="{{ csrf_token() }}">
-                    <input name="_method" type="hidden" value="DELETE">
-                    <a href= action="{{ route('index') }} {{ $user->id }}"/edit type="Text" class="btn btn-xs btn-default">Edit</a>
-                    <button type="submit" class="btn btn-xs btn-danger">Delete</button>
-                  </form>
-                </td>
-                <td>
-                <button type="button" class="btn-xs btn-warning" data-toggle="modal" data-target=".bs-example-modal-lg">Show</button>
-                </td>
+                  <div class="margin">
+                    <div class="btn-group">
+                      <button type="button" class="btn btn-default btn-flat">Action</button>
+                        <button type="button" class="btn btn-default btn-flat dropdown-toggle" data-toggle="dropdown">
+                          <span class="caret"></span>
+                            <span class="sr-only">Toggle Dropdown</span>
+                        </button>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a href="\managemembers\addmember\create">Create</a></li>
+                    <li><a href="#">Edit</a></li>                    
+                    <li class="divider"></li>
+                    <li><a href="#">Delete</a></li>
+                  </ul>
+                  </div>
                   </td>
                 </tr>                        
                 @endforeach          
