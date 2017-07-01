@@ -21,6 +21,9 @@ Route::get('/', function(){ return view('index');});
 Route::get('index', function(){return view('index');});
 Route::get('index2', function(){return view('index2');});
 
+Route::get('/managemembers/index', 'ManagemembersController@index');
+Route::get('/managemembers/addmember/index', 'AddmemberController@index');
+
 Route::get('pages/layout/top-nav', function(){return view('pages.layout.top-nav');});
 Route::get('pages/layout/fixed', function(){return view('pages.layout.fixed');});
 Route::get('pages/layout/boxed', function(){return view('pages.layout.boxed');});

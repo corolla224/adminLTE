@@ -38,6 +38,19 @@
         <li class="treeview">
           <a href="#">
             <i class="fa fa-files-o"></i>
+            <span>Manage members</span>
+            <span class="pull-right-container">
+              <span class="label label-primary pull-right">4</span>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="/managemembers/addmember/index"><i class="fa fa-circle-o"></i> Add Member</a></li>
+            <li><a href="/managemembers/index"><i class="fa fa-circle-o"></i> Member Lists</a></li>            
+          </ul>
+        </li>
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-files-o"></i>
             <span>Layout Options</span>
             <span class="pull-right-container">
               <span class="label label-primary pull-right">4</span>
